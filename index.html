@@ -1,0 +1,1639 @@
+@media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 6rem 2rem 4rem;
+                gap: 3rem;
+            }
+
+            .pricing-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .addon-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .limit-alert {
+                <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventFloX AI - 智能活动协作平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0066ff;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 100%);
+            border-radius: 10px;
+        }
+
+        .logo-icon svg {
+            width: 24px;
+            height: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .lang-toggle {
+            display: flex;
+            gap: 0.5rem;
+            background: #f3f4f6;
+            padding: 0.25rem;
+            border-radius: 0.5rem;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            color: #6b7280;
+        }
+
+        .lang-btn.active {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            color: #1a1a1a;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 8rem 4rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: 
+                radial-gradient(ellipse 150% 100% at 50% -20%, rgba(255, 255, 255, 0.8), transparent 60%),
+                radial-gradient(ellipse 120% 80% at 10% 50%, rgba(243, 233, 255, 0.4), transparent 70%),
+                radial-gradient(ellipse 120% 80% at 90% 50%, rgba(228, 227, 255, 0.4), transparent 70%),
+                radial-gradient(ellipse 100% 100% at 50% 120%, rgba(228, 227, 255, 0.3), transparent),
+                linear-gradient(160deg, 
+                    #ffffff 0%, 
+                    #fcfaff 20%,
+                    #f8f5ff 35%,
+                    #f3e9ff 55%,
+                    #ede5ff 75%,
+                    #e4e3ff 100%
+                );
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle 800px at 30% 40%, rgba(255, 255, 255, 0.3), transparent),
+                radial-gradient(circle 600px at 70% 60%, rgba(243, 233, 255, 0.2), transparent);
+            filter: blur(40px);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            height: 70%;
+            background: radial-gradient(ellipse, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(118, 75, 162, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+            padding: 0.6rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #764ba2;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(118, 75, 162, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #f0f4ff;
+        }
+
+        .btn-nav {
+            padding: 0.625rem 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .hero-avatars {
+            display: flex;
+            align-items: center;
+        }
+
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 3px solid white;
+            margin-left: -14px;
+        }
+
+        .avatar:first-child {
+            margin-left: 0;
+        }
+
+        .avatar-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .avatar-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .avatar-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .avatar-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+
+        .hero-rating {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1.25rem;
+            letter-spacing: 2px;
+        }
+
+        .rating-text {
+            font-size: 0.9rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .hero-demo {
+            position: relative;
+            z-index: 1;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding-right: 1rem;
+        }
+
+        .hero-demo::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .hero-demo::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+        }
+
+        .hero-demo::-webkit-scrollbar-thumb {
+            background: rgba(102, 126, 234, 0.3);
+            border-radius: 10px;
+        }
+
+        .demo-cards-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .demo-cards-container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .demo-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .demo-card:nth-child(2) {
+            animation-delay: 1s;
+            transform: scale(0.95);
+        }
+
+        .demo-card:nth-child(3) {
+            animation-delay: 2s;
+            transform: scale(0.9);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .demo-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .demo-icon {
+            width: 54px;
+            height: 54px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 0.875rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+
+        .demo-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .demo-subtitle {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .demo-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.125rem;
+            background: linear-gradient(135deg, #fafbff 0%, #f9fafb 100%);
+            border-radius: 0.875rem;
+            margin-bottom: 0.875rem;
+            transition: all 0.3s;
+        }
+
+        .demo-item:hover {
+            transform: translateX(4px);
+            background: linear-gradient(135deg, #f0f4ff 0%, #f3f4f6 100%);
+        }
+
+        .demo-item-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 0.625rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            font-weight: 700;
+        }
+
+        .demo-item-icon.completed {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            color: #059669;
+        }
+
+        .demo-item-icon.pending {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            color: #2563eb;
+        }
+
+        .demo-item-text {
+            flex: 1;
+        }
+
+        .demo-item-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .demo-ai-suggestion {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            border-radius: 0.875rem;
+            padding: 1.25rem;
+            margin-top: 1.25rem;
+            border: 1px solid rgba(102, 126, 234, 0.15);
+        }
+
+        .demo-ai-header {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .demo-ai-icon {
+            font-size: 1.25rem;
+        }
+
+        .demo-ai-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .demo-ai-text {
+            font-size: 0.9rem;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.75rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6b7280;
+            font-size: 1.15rem;
+            margin-bottom: 4rem;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .step {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1.25rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s;
+            border: 1px solid #f3f4f6;
+        }
+
+        .step:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.15);
+            border-color: rgba(102, 126, 234, 0.2);
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: #1a1a1a;
+        }
+
+        .step p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .pricing {
+            background: linear-gradient(135deg, #f0f4ff 0%, #faf5ff 100%);
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .plan-events {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .events-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #667eea;
+            display: block;
+            line-height: 1;
+        }
+
+        .events-text {
+            font-size: 0.9rem;
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .addon-section {
+            margin-top: 4rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            border-radius: 1.5rem;
+            border: 2px dashed rgba(102, 126, 234, 0.2);
+        }
+
+        .addon-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .addon-subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .addon-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .addon-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .addon-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+        }
+
+        .addon-popular {
+            border-color: #667eea;
+        }
+
+        .addon-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 1.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .addon-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .addon-events {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #667eea;
+            margin-bottom: 0.25rem;
+        }
+
+        .addon-text {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        .addon-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-addon {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-addon:hover {
+            background: #f0f4ff;
+        }
+
+        .btn-addon-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-addon-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .limit-alert {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
+            border-radius: 1rem;
+            border: 2px solid rgba(251, 191, 36, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .alert-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .alert-content {
+            flex: 1;
+        }
+
+        .alert-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .alert-text {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        .alert-actions {
+            display: flex;
+            gap: 1rem;
+            flex-shrink: 0;
+        }
+
+        .btn-small {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1.25rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s;
+            position: relative;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(102, 126, 234, 0.2);
+        }
+
+        .pricing-card.popular {
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .plan-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .plan-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .plan-period {
+            color: #6b7280;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .plan-description {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .plan-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f3f4f6;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .plan-features li:before {
+            content: '✓';
+            color: #667eea;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .plan-note {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            color: #6b7280;
+            text-align: center;
+        }
+
+        .pricing-footer {
+            text-align: center;
+            color: #6b7280;
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature {
+            background: linear-gradient(135deg, #fafbff 0%, #f9fafb 100%);
+            padding: 2.5rem;
+            border-radius: 1.25rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s;
+            border: 1px solid #f3f4f6;
+        }
+
+        .feature:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.15);
+            background: white;
+            border-color: rgba(102, 126, 234, 0.2);
+        }
+
+        .feature-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 1.125rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .feature h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: #1a1a1a;
+        }
+
+        .feature p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .testimonials {
+            background: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: linear-gradient(135deg, #fafbff 0%, #f9fafb 100%);
+            padding: 2.5rem;
+            border-radius: 1.25rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            border: 1px solid #f3f4f6;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.1);
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: #374151;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo .logo {
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo .logo-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .footer-tagline {
+            color: #9ca3af;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        .lang-zh { 
+            display: none !important; 
+        }
+        
+        body.zh .lang-en { 
+            display: none !important; 
+        }
+        
+        body.zh .lang-zh { 
+            display: inline !important; 
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 6rem 2rem 4rem;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="logo">
+            <div class="logo-icon">⚡</div>
+            <span>EventFloX AI</span>
+        </div>
+        <div class="nav-right">
+            <div class="lang-toggle">
+                <button class="lang-btn active" onclick="setLang('en')">EN</button>
+                <button class="lang-btn" onclick="setLang('zh')">中文</button>
+            </div>
+            <a href="https://app.eventflox.com" class="btn btn-primary btn-nav">
+                <span class="lang-en">Go to App</span>
+                <span class="lang-zh">进入应用</span>
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>🎉</span>
+                <span class="lang-en">AI-Powered Event Management Platform</span>
+                <span class="lang-zh">AI 驱动的活动管理平台</span>
+            </div>
+            <h1>
+                <span class="lang-en">Every Event Deserves</span>
+                <span class="lang-zh">让每一场活动</span>
+                <span class="gradient-text">
+                    <span class="lang-en">Perfect Execution</span>
+                    <span class="lang-zh">都值得被完美复盘</span>
+                </span>
+            </h1>
+            <p class="subtitle">
+                <span class="lang-en">AI-powered platform that automatically generates recap reports and empowers teams with seamless collaboration</span>
+                <span class="lang-zh">AI 驱动的活动管理平台，自动生成复盘报告，团队协作更高效</span>
+            </p>
+            <div class="cta-buttons">
+                <a href="https://app.eventflox.com" class="btn btn-primary">
+                    <span class="lang-en">Free Forever · No Credit Card</span>
+                    <span class="lang-zh">永久免费 · 无需信用卡</span>
+                    <span>→</span>
+                </a>
+                <a href="#pricing" class="btn btn-secondary">
+                    <span class="lang-en">View Pricing</span>
+                    <span class="lang-zh">查看价格</span>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-avatars">
+                    <div class="avatar avatar-1"></div>
+                    <div class="avatar avatar-2"></div>
+                    <div class="avatar avatar-3"></div>
+                    <div class="avatar avatar-4"></div>
+                </div>
+                <div class="hero-rating">
+                    <div class="stars">★★★★★</div>
+                    <p class="rating-text">
+                        <span class="lang-en">10,000+ organizations trust us</span>
+                        <span class="lang-zh">10,000+ 组织者的选择</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-demo">
+            <div class="demo-cards-container">
+                <!-- Demo 1: Tech Summit -->
+                <div class="demo-card">
+                    <div class="demo-header">
+                        <div class="demo-icon">📅</div>
+                        <div>
+                            <div class="demo-title">
+                                <span class="lang-en">Annual Tech Summit</span>
+                                <span class="lang-zh">年度科技峰会</span>
+                            </div>
+                            <div class="demo-subtitle">
+                                <span class="lang-en">In Progress • 5 tasks pending</span>
+                                <span class="lang-zh">进行中 • 5 个任务待处理</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-item">
+                        <div class="demo-item-icon completed">✓</div>
+                        <div class="demo-item-text">
+                            <div class="demo-item-title">
+                                <span class="lang-en">Venue Confirmed</span>
+                                <span class="lang-zh">场地确认</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-item">
+                        <div class="demo-item-icon completed">✓</div>
+                        <div class="demo-item-text">
+                            <div class="demo-item-title">
+                                <span class="lang-en">Guest Invitations Sent</span>
+                                <span class="lang-zh">嘉宾邀请</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-item">
+                        <div class="demo-item-icon pending">⏱</div>
+                        <div class="demo-item-text">
+                            <div class="demo-item-title">
+                                <span class="lang-en">Materials Prepared</span>
+                                <span class="lang-zh">物料准备</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-ai-suggestion">
+                        <div class="demo-ai-header">
+                            <span class="demo-ai-icon">✨</span>
+                            <span class="demo-ai-title">
+                                <span class="lang-en">AI Smart Suggestion</span>
+                                <span class="lang-zh">AI 智能建议</span>
+                            </span>
+                        </div>
+                        <p class="demo-ai-text">
+                            <span class="lang-en">Based on current progress, we recommend completing materials prep 2 days before...</span>
+                            <span class="lang-zh">根据当前进度，建议提前2天完成物料准备...</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Demo 2: Corporate Gala -->
+                <div class="demo-card">
+                    <div class="demo-header">
+                        <div class="demo-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">🎭</div>
+                        <div>
+                            <div class="demo-title">
+                                <span class="lang-en">Corporate Annual Gala</span>
+                                <span class="lang-zh">企业年会盛典</span>
+                            </div>
+                            <div class="demo-subtitle">
+                                <span class="lang-en">Planning • 200 attendees</span>
+                                <span class="lang-zh">筹备中 • 200 名参会者</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-item">
+                        <div class="demo-item-icon completed">✓</div>
+                        <div class="demo-item-text">
+                            <div class="demo-item-title">
+                                <span class="lang-en">QR Check-in System Ready</span>
+                                <span class="lang-zh">签到系统就绪</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-item">
+                        <div class="demo-item-icon pending">⏱</div>
+                        <div class="demo-item-text">
+                            <div class="demo-item-title">
+                                <span class="lang-en">Guest Coordination</span>
+                                <span class="lang-zh">嘉宾协调</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-item">
+                        <div class="demo-item-icon pending">⏱</div>
+                        <div class="demo-item-text">
+                            <div class="demo-item-title">
+                                <span class="lang-en">Task Management Board</span>
+                                <span class="lang-zh">任务管理看板</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Demo 3: Art Exhibition -->
+                <div class="demo-card">
+                    <div class="demo-header">
+                        <div class="demo-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">🎨</div>
+                        <div>
+                            <div class="demo-title">
+                                <span class="lang-en">Contemporary Art Exhibition</span>
+                                <span class="lang-zh">当代艺术展览</span>
+                            </div>
+                            <div class="demo-subtitle">
+                                <span class="lang-en">Setup Phase • 8 volunteers</span>
+                                <span class="lang-zh">布展阶段 • 8 名志愿者</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-item">
+                        <div class="demo-item-icon completed">✓</div>
+                        <div class="demo-item-text">
+                            <div class="demo-item-title">
+                                <span class="lang-en">Booth Setup Complete</span>
+                                <span class="lang-zh">展位布置完成</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-item">
+                        <div class="demo-item-icon completed">✓</div>
+                        <div class="demo-item-text">
+                            <div class="demo-item-title">
+                                <span class="lang-en">Attendee Registration Open</span>
+                                <span class="lang-zh">观众报名开放</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-item">
+                        <div class="demo-item-icon pending">⏱</div>
+                        <div class="demo-item-text">
+                            <div class="demo-item-title">
+                                <span class="lang-en">Volunteer Task Assignment</span>
+                                <span class="lang-zh">志愿者任务分配</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">
+            <span class="lang-en">How It Works</span>
+            <span class="lang-zh">工作流程</span>
+        </h2>
+        <p class="section-subtitle">
+            <span class="lang-en">Four simple steps to flawless event execution</span>
+            <span class="lang-zh">四个简单步骤，完美执行活动</span>
+        </p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>
+                    <span class="lang-en">AI Generates Plan</span>
+                    <span class="lang-zh">AI生成方案</span>
+                </h3>
+                <p>
+                    <span class="lang-en">Describe your event and AI creates a complete plan with tasks and schedules.</span>
+                    <span class="lang-zh">描述您的活动，AI自动生成完整方案和时间表。</span>
+                </p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>
+                    <span class="lang-en">Invite & Assign</span>
+                    <span class="lang-zh">邀请与分配</span>
+                </h3>
+                <p>
+                    <span class="lang-en">Add team members and assign tasks with real-time updates.</span>
+                    <span class="lang-zh">添加团队成员并分配任务，实时同步更新。</span>
+                </p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>
+                    <span class="lang-en">QR Check-In</span>
+                    <span class="lang-zh">扫码签到</span>
+                </h3>
+                <p>
+                    <span class="lang-en">Attendees check in with QR codes. Bilingual chat keeps everyone connected.</span>
+                    <span class="lang-zh">参会者通过二维码签到，双语聊天无障碍沟通。</span>
+                </p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>
+                    <span class="lang-en">AI Auto Recap</span>
+                    <span class="lang-zh">AI自动复盘</span>
+                </h3>
+                <p>
+                    <span class="lang-en">AI generates comprehensive summaries and analytics automatically.</span>
+                    <span class="lang-zh">AI自动生成全面的总结和分析报告。</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section pricing" id="pricing">
+        <h2 class="section-title">
+            <span class="lang-en">Simple Pricing Based on Events</span>
+            <span class="lang-zh">基于活动数量的简单定价</span>
+        </h2>
+        <p class="section-subtitle">
+            <span class="lang-en">All features included • Pay only for the events you need</span>
+            <span class="lang-zh">所有功能完全相同 • 仅按活动数量付费</span>
+        </p>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <div class="plan-icon">💡</div>
+                <h3 class="plan-name">Free</h3>
+                <div class="plan-price">$0</div>
+                <p class="plan-period">
+                    <span class="lang-en">Forever Free</span>
+                    <span class="lang-zh">永久免费</span>
+                </p>
+                <div class="plan-events">
+                    <span class="events-number">2</span>
+                    <span class="events-text">
+                        <span class="lang-en">events/month</span>
+                        <span class="lang-zh">场活动/月</span>
+                    </span>
+                </div>
+                <ul class="plan-features">
+                    <li><span class="lang-en">All core features</span><span class="lang-zh">所有核心功能</span></li>
+                    <li><span class="lang-en">AI event generation</span><span class="lang-zh">AI活动生成</span></li>
+                    <li><span class="lang-en">QR check-in</span><span class="lang-zh">二维码签到</span></li>
+                    <li><span class="lang-en">Bilingual support</span><span class="lang-zh">双语支持</span></li>
+                </ul>
+                <a href="https://app.eventflox.com" class="btn btn-secondary" style="width:100%">
+                    <span class="lang-en">Start Free</span>
+                    <span class="lang-zh">立即开始</span>
+                </a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="plan-icon">🚀</div>
+                <h3 class="plan-name">Starter</h3>
+                <div class="plan-price">$1.9</div>
+                <p class="plan-period">
+                    <span class="lang-en">per month</span>
+                    <span class="lang-zh">每月</span>
+                </p>
+                <div class="plan-events">
+                    <span class="events-number">8</span>
+                    <span class="events-text">
+                        <span class="lang-en">events/month</span>
+                        <span class="lang-zh">场活动/月</span>
+                    </span>
+                </div>
+                <ul class="plan-features">
+                    <li><span class="lang-en">All core features</span><span class="lang-zh">所有核心功能</span></li>
+                    <li><span class="lang-en">AI event generation</span><span class="lang-zh">AI活动生成</span></li>
+                    <li><span class="lang-en">QR check-in</span><span class="lang-zh">二维码签到</span></li>
+                    <li><span class="lang-en">Bilingual support</span><span class="lang-zh">双语支持</span></li>
+                </ul>
+                <a href="https://app.eventflox.com" class="btn btn-primary" style="width:100%; margin-top:auto;">
+                    <span class="lang-en">Start Now</span>
+                    <span class="lang-zh">立即开始</span>
+                </a>
+            </div>
+
+            <div class="pricing-card popular">
+                <div class="popular-badge">
+                    <span class="lang-en">Most Popular</span>
+                    <span class="lang-zh">最受欢迎</span>
+                </div>
+                <div class="plan-icon">🌟</div>
+                <h3 class="plan-name">Pro</h3>
+                <div class="plan-price">$5.9</div>
+                <p class="plan-period">
+                    <span class="lang-en">per month</span>
+                    <span class="lang-zh">每月</span>
+                </p>
+                <div class="plan-events">
+                    <span class="events-number">25</span>
+                    <span class="events-text">
+                        <span class="lang-en">events/month</span>
+                        <span class="lang-zh">场活动/月</span>
+                    </span>
+                </div>
+                <ul class="plan-features">
+                    <li><span class="lang-en">All core features</span><span class="lang-zh">所有核心功能</span></li>
+                    <li><span class="lang-en">AI event generation</span><span class="lang-zh">AI活动生成</span></li>
+                    <li><span class="lang-en">QR check-in</span><span class="lang-zh">二维码签到</span></li>
+                    <li><span class="lang-en">Bilingual support</span><span class="lang-zh">双语支持</span></li>
+                </ul>
+                <a href="https://app.eventflox.com" class="btn btn-primary" style="width:100%; margin-top:auto;">
+                    <span class="lang-en">Start Now</span>
+                    <span class="lang-zh">立即开始</span>
+                </a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="plan-icon">🏢</div>
+                <h3 class="plan-name">Team</h3>
+                <div class="plan-price">$12.9</div>
+                <p class="plan-period">
+                    <span class="lang-en">per month</span>
+                    <span class="lang-zh">每月</span>
+                </p>
+                <div class="plan-events">
+                    <span class="events-number">80</span>
+                    <span class="events-text">
+                        <span class="lang-en">events/month</span>
+                        <span class="lang-zh">场活动/月</span>
+                    </span>
+                </div>
+                <ul class="plan-features">
+                    <li><span class="lang-en">All core features</span><span class="lang-zh">所有核心功能</span></li>
+                    <li><span class="lang-en">AI event generation</span><span class="lang-zh">AI活动生成</span></li>
+                    <li><span class="lang-en">QR check-in</span><span class="lang-zh">二维码签到</span></li>
+                    <li><span class="lang-en">Bilingual support</span><span class="lang-zh">双语支持</span></li>
+                </ul>
+                <a href="https://app.eventflox.com" class="btn btn-primary" style="width:100%; margin-top:auto;">
+                    <span class="lang-en">Start Now</span>
+                    <span class="lang-zh">立即开始</span>
+                </a>
+            </div>
+        </div>
+
+        <p class="pricing-footer">
+            <span class="lang-en">All plans include the same features. Choose based on how many events you run per month.</span>
+            <span class="lang-zh">所有套餐功能完全相同，仅根据每月活动数量选择即可。</span>
+        </p>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">
+            <span class="lang-en">Powerful Features</span>
+            <span class="lang-zh">强大功能</span>
+        </h2>
+        <p class="section-subtitle">
+            <span class="lang-en">Everything you need to run perfect events</span>
+            <span class="lang-zh">举办完美活动所需的一切功能</span>
+        </p>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🤖</div>
+                <h3>
+                    <span class="lang-en">AI Event Generation</span>
+                    <span class="lang-zh">AI活动生成</span>
+                </h3>
+                <p>
+                    <span class="lang-en">Transform a simple description into a detailed event plan with tasks, schedules, and role assignments in seconds.</span>
+                    <span class="lang-zh">将简单的描述转化为详细的活动计划，包含任务、时间表和角色分配，仅需几秒钟。</span>
+                </p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <h3>
+                    <span class="lang-en">QR Sign-In</span>
+                    <span class="lang-zh">二维码签到</span>
+                </h3>
+                <p>
+                    <span class="lang-en">Effortless attendee management with instant QR code check-ins and real-time attendance tracking.</span>
+                    <span class="lang-zh">通过即时二维码签到和实时出勤追踪，轻松管理参会者。</span>
+                </p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🌍</div>
+                <h3>
+                    <span class="lang-en">Bilingual Communication</span>
+                    <span class="lang-zh">双语沟通</span>
+                </h3>
+                <p>
+                    <span class="lang-en">Built-in English-Chinese translation breaks language barriers and connects global teams seamlessly.</span>
+                    <span class="lang-zh">内置中英文翻译打破语言障碍，无缝连接全球团队。</span>
+                </p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📋</div>
+                <h3>
+                    <span class="lang-en">Task Collaboration</span>
+                    <span class="lang-zh">任务协作看板</span>
+                </h3>
+                <p>
+                    <span class="lang-en">Visual task boards keep your team organized with clear assignments, progress tracking, and deadlines.</span>
+                    <span class="lang-zh">可视化任务看板通过清晰的分配、进度跟踪和截止日期让团队井然有序。</span>
+                </p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📊</div>
+                <h3>
+                    <span class="lang-en">Auto Reports & Analytics</span>
+                    <span class="lang-zh">自动报告与分析</span>
+                </h3>
+                <p>
+                    <span class="lang-en">Post-event summaries and insights are generated automatically, saving hours of manual work.</span>
+                    <span class="lang-zh">活动后总结和洞察自动生成，节省数小时的手动工作。</span>
+                </p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>
+                    <span class="lang-en">Real-Time Sync</span>
+                    <span class="lang-zh">实时同步</span>
+                </h3>
+                <p>
+                    <span class="lang-en">Every update syncs instantly across all devices, keeping your entire team aligned at all times.</span>
+                    <span class="lang-zh">所有更新在所有设备上即时同步，让您的整个团队始终保持一致。</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section testimonials">
+        <h2 class="section-title">
+            <span class="lang-en">What Our Users Say</span>
+            <span class="lang-zh">用户评价</span>
+        </h2>
+        <p class="section-subtitle">
+            <span class="lang-en">Join thousands of happy event organizers</span>
+            <span class="lang-zh">加入数千名满意的活动组织者</span>
+        </p>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <p class="testimonial-text">
+                    <span class="lang-en">"EventFloX helped us manage our cultural events 3x faster! The AI planning is incredible."</span>
+                    <span class="lang-zh">"EventFloX帮助我们管理文化活动的速度提高了3倍！AI规划功能非常出色。"</span>
+                </p>
+                <p class="testimonial-author">
+                    <span class="lang-en">— Sarah Chen, Cultural Center Director</span>
+                    <span class="lang-zh">— 陈莎拉，文化中心主任</span>
+                </p>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">
+                    <span class="lang-en">"The bilingual features are a game-changer for our international team. Highly recommended!"</span>
+                    <span class="lang-zh">"双语功能对我们的国际团队来说是游戏规则的改变者。强烈推荐！"</span>
+                </p>
+                <p class="testimonial-author">
+                    <span class="lang-en">— David Wong, Startup Founder</span>
+                    <span class="lang-zh">— 王大伟，创业公司创始人</span>
+                </p>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">
+                    <span class="lang-en">"From planning to execution, EventFloX makes everything seamless. Our school events have never run smoother."</span>
+                    <span class="lang-zh">"从规划到执行，EventFloX让一切变得无缝。我们学校的活动从未如此顺利。"</span>
+                </p>
+                <p class="testimonial-author">
+                    <span class="lang-en">— Jessica Liu, School Administrator</span>
+                    <span class="lang-zh">— 刘洁西卡，学校管理员</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo">
+                    <div class="logo-icon">⚡</div>
+                    <span>EventFloX AI</span>
+                </div>
+                <p class="footer-tagline">
+                    <span class="lang-en">Built with ❤️ in New York</span>
+                    <span class="lang-zh">用 ❤️ 在纽约打造</span>
+                </p>
+            </div>
+            <div class="footer-links">
+                <a href="https://app.eventflox.com">
+                    <span class="lang-en">Go to App</span>
+                    <span class="lang-zh">进入应用</span>
+                </a>
+                <a href="#pricing">
+                    <span class="lang-en">Pricing</span>
+                    <span class="lang-zh">价格</span>
+                </a>
+                <a href="#">
+                    <span class="lang-en">About</span>
+                    <span class="lang-zh">关于我们</span>
+                </a>
+                <a href="#">
+                    <span class="lang-en">Contact</span>
+                    <span class="lang-zh">联系我们</span>
+                </a>
+                <a href="#">
+                    <span class="lang-en">Privacy</span>
+                    <span class="lang-zh">隐私政策</span>
+                </a>
+                <a href="#">
+                    <span class="lang-en">Terms</span>
+                    <span class="lang-zh">服务条款</span>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 EventFloX AI. <span class="lang-en">All rights reserved.</span><span class="lang-zh">版权所有。</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function setLang(lang) {
+            const body = document.body;
+            const buttons = document.querySelectorAll('.lang-btn');
+            
+            // 添加或移除中文class
+            if (lang === 'zh') {
+                body.classList.add('zh');
+                localStorage.setItem('language', 'zh');
+            } else {
+                body.classList.remove('zh');
+                localStorage.setItem('language', 'en');
+            }
+            
+            // 更新按钮active状态
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                const btnText = btn.textContent.trim();
+                if ((lang === 'zh' && btnText === '中文') || 
+                    (lang === 'en' && btnText === 'EN')) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // 页面加载时检查保存的语言设置
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('language');
+            if (savedLang === 'zh') {
+                setLang('zh');
+            }
+        });
+    </script>
+</body>
+</html>
