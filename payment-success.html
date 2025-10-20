@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>支付成功 - EventFloX AI</title>
+    <title>支付成功 - EventFlox</title>
     <style>
         * {
             margin: 0;
@@ -12,315 +12,218 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-            background: linear-gradient(160deg, #ffffff 0%, #f3e9ff 55%, #e4e3ff 100%);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #e8d5f2 0%, #d4c5e8 100%);
             min-height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
-            padding: 2rem;
+            align-items: center;
+            padding: 20px;
         }
 
         .container {
-            max-width: 650px;
-            width: 100%;
             background: white;
-            border-radius: 2rem;
-            box-shadow: 0 30px 80px rgba(102, 126, 234, 0.15);
-            padding: 3rem;
+            border-radius: 20px;
+            padding: 50px 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            font-size: 32px;
+            color: #7c6eb5;
             text-align: center;
-        }
-
-        .checkmark-circle {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 2rem;
-            border: 3px solid #10b981;
-            border-radius: 50%;
-            background: rgba(16, 185, 129, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .checkmark {
-            width: 60px;
-            height: 60px;
-            stroke: #10b981;
-            stroke-width: 4;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            fill: none;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #667eea;
-            margin-bottom: 1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
 
         .subtitle {
-            font-size: 1.25rem;
-            color: #6b7280;
-            margin-bottom: 2rem;
-        }
-
-        .description {
-            font-size: 1.05rem;
-            color: #6b7280;
+            font-size: 16px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 40px;
             line-height: 1.6;
-            margin-bottom: 2.5rem;
         }
 
-        .plan-box {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
-            border: 2px solid rgba(102, 126, 234, 0.2);
-            border-radius: 1.5rem;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
+        .plan-card {
+            background: linear-gradient(135deg, #e8e4f3 0%, #f0ecf8 100%);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            border: 2px solid #e0d9f0;
         }
 
-        .plan-emoji {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+        .star-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
         }
 
         .plan-title {
-            font-size: 1.75rem;
+            font-size: 28px;
+            color: #6366f1;
             font-weight: 700;
-            color: #667eea;
-            margin-bottom: 1.5rem;
+            margin-bottom: 30px;
         }
 
-        .plan-info {
+        .plan-details {
             display: flex;
             justify-content: center;
-            gap: 3rem;
-            margin-top: 1.5rem;
+            gap: 80px;
+            margin-top: 20px;
         }
 
-        .info-item {
+        .plan-item {
             text-align: center;
         }
 
-        .info-label {
-            font-size: 0.9rem;
-            color: #6b7280;
-            margin-bottom: 0.5rem;
+        .plan-label {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 8px;
         }
 
-        .info-value {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #667eea;
+        .plan-value {
+            font-size: 36px;
+            color: #6366f1;
+            font-weight: 700;
         }
 
-        .time {
-            font-size: 0.95rem;
-            color: #9ca3af;
-            margin-bottom: 2.5rem;
+        .completion-time {
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 30px;
         }
 
-        .buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .btn {
-            padding: 1.25rem 2rem;
-            font-size: 1.05rem;
+        .button {
+            display: block;
+            width: 100%;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 16px;
             font-weight: 600;
-            border: none;
-            border-radius: 0.875rem;
-            cursor: pointer;
+            text-align: center;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            transition: all 0.3s;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .primary-button {
+            background: linear-gradient(135deg, #6366f1 0%, #8b7cd8 100%);
             color: white;
-            font-size: 1.15rem;
-            padding: 1.5rem 2.5rem;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            margin-bottom: 16px;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
         }
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        .primary-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
         }
 
-        .btn-row {
-            display: flex;
-            gap: 1rem;
+        .button-icon {
+            margin-right: 8px;
         }
 
-        .btn-secondary {
+        .button-arrow {
+            margin-left: 8px;
+        }
+
+        .secondary-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .secondary-button {
             background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
-            flex: 1;
+            color: #6366f1;
+            border: 2px solid #6366f1;
         }
 
-        .btn-secondary:hover {
-            background: #f0f4ff;
+        .secondary-button:hover {
+            background: #f5f5ff;
             transform: translateY(-2px);
         }
 
-        .lang-switch {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            display: flex;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 0.25rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .lang-btn {
-            padding: 0.5rem 1rem;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-            border-radius: 0.375rem;
-            font-weight: 500;
-            color: #6b7280;
-            transition: all 0.3s;
-        }
-
-        .lang-btn.active {
-            background: #667eea;
-            color: white;
-        }
-
-        .hide { display: none; }
-
-        @media (max-width: 640px) {
+        @media (max-width: 600px) {
             .container {
-                padding: 2rem;
+                padding: 30px 20px;
             }
 
-            h1 {
-                font-size: 1.75rem;
+            .title {
+                font-size: 24px;
             }
 
-            .btn-row {
-                flex-direction: column;
+            .plan-details {
+                gap: 40px;
             }
 
-            .plan-info {
-                gap: 1.5rem;
+            .plan-value {
+                font-size: 28px;
             }
 
-            .lang-switch {
-                top: 1rem;
-                right: 1rem;
+            .secondary-buttons {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="lang-switch">
-        <button class="lang-btn" onclick="switchLang('en')">EN</button>
-        <button class="lang-btn active" onclick="switchLang('zh')">中文</button>
-    </div>
-
     <div class="container">
-        <div class="checkmark-circle">
-            <svg class="checkmark" viewBox="0 0 52 52">
-                <path d="M14 27l7 7 17-17" stroke="#10b981" stroke-width="4" fill="none"/>
-            </svg>
-        </div>
+        <h1 class="title">支付成功！</h1>
+        <p class="subtitle">您的套餐已升级</p>
+        <p class="subtitle">感谢您的支持，系统已自动升级至相应套餐，您可以立即创建更多活动。</p>
 
-        <h1>
-            <span class="lang-en hide">Payment Successful!</span>
-            <span class="lang-zh">支付成功！</span>
-        </h1>
-
-        <p class="subtitle">
-            <span class="lang-en hide">Your plan has been upgraded</span>
-            <span class="lang-zh">您的套餐已升级</span>
-        </p>
-
-        <p class="description">
-            <span class="lang-en hide">Thank you for your subscription. Your account has been upgraded automatically. You can now create more events.</span>
-            <span class="lang-zh">感谢您的支持，系统已自动升级至相应套餐，您可以立即创建更多活动。</span>
-        </p>
-
-        <div class="plan-box">
-            <div class="plan-emoji" id="planEmoji">🌟</div>
-            <div class="plan-title" id="planTitle">Pro 套餐</div>
-            <div class="plan-info">
-                <div class="info-item">
-                    <div class="info-label">
-                        <span class="lang-en hide">Monthly Events</span>
-                        <span class="lang-zh">每月活动数</span>
-                    </div>
-                    <div class="info-value" id="eventCount">25</div>
+        <div class="plan-card">
+            <div class="star-icon">⭐</div>
+            <div class="plan-title">Pro 套餐</div>
+            <div class="plan-details">
+                <div class="plan-item">
+                    <div class="plan-label">每月活动数</div>
+                    <div class="plan-value">25</div>
                 </div>
-                <div class="info-item">
-                    <div class="info-label">
-                        <span class="lang-en hide">Plan Type</span>
-                        <span class="lang-zh">套餐类型</span>
-                    </div>
-                    <div class="info-value" id="planName">Pro</div>
+                <div class="plan-item">
+                    <div class="plan-label">套餐类型</div>
+                    <div class="plan-value">Pro</div>
                 </div>
             </div>
         </div>
 
-        <p class="time">
-            <span class="lang-en hide">Payment completed at:</span>
-            <span class="lang-zh">支付完成时间：</span>
-            <span id="timestamp"></span>
-        </p>
+        <div class="completion-time">支付完成时间：</div>
 
-        <div class="buttons">
-            <a href="https://app.eventflox.com/create-event" class="btn btn-primary">
-                <span>🤖</span>
-                <span class="lang-en hide">Create Event with AI</span>
-                <span class="lang-zh">AI 创建活动</span>
-                <span>→</span>
+        <a href="https://app.eventflox.com/CreateEvent" class="button primary-button">
+            <span class="button-icon">🤖</span>
+            AI 创建活动
+            <span class="button-arrow">→</span>
+        </a>
+
+        <div class="secondary-buttons">
+            <a href="https://app.eventflox.com/Dashboard" class="button secondary-button">
+                <span class="button-icon">📊</span>
+                活动面板
             </a>
-            <div class="btn-row">
-                <a href="https://app.eventflox.com/dashboard" class="btn btn-secondary">
-                    <span class="lang-en hide">Dashboard</span>
-                    <span class="lang-zh">活动面板</span>
-                </a>
-                <a href="https://app.eventflox.com/account/subscription" class="btn btn-secondary">
-                    <span class="lang-en hide">Subscription</span>
-                    <span class="lang-zh">订阅详情</span>
-                </a>
-            </div>
+            <a href="https://www.eventflox.com/Subscription" class="button secondary-button">
+                <span class="button-icon">💳</span>
+                订阅详情
+            </a>
         </div>
     </div>
 
     <script>
-        function getParam(name) {
-            const params = new URLSearchParams(window.location.search);
-            return params.get(name);
-        }
-
-        const plans = {
-            starter: { emoji: '🚀', nameEn: 'Starter Plan', nameZh: 'Starter 套餐', events: 8, type: 'Starter' },
-            pro: { emoji: '🌟', nameEn: 'Pro Plan', nameZh: 'Pro 套餐', events: 25, type: 'Pro' },
-            team: { emoji: '🏢', nameEn: 'Team Plan', nameZh: 'Team 套餐', events: 80, type: 'Team' }
-        };
-
-        function init() {
-            const planType = getParam('plan') || 'pro';
-            const plan = plans[planType.toLowerCase()] || plans.pro;
-
-            document.getElementById('planEmoji').textContent = plan.emoji;
-            document.getElementById('eventCount').textContent = plan.events;
-            document.getElementById('planName').textContent = plan.type;
-            
-            const titleEl = document.getElementById('planTitle');
-            titleEl.inner
+        // 显示当前时间
+        const now = new Date();
+        const timeString = now.toLocaleString('zh-CN', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+        document.querySelector('.completion-time').textContent = `支付完成时间：${timeString}`;
+    </script>
+</body>
+</html>
