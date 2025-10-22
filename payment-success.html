@@ -212,18 +212,46 @@
         </div>
     </div>
 
-    <script>
-        // 显示当前时间
-        const now = new Date();
-        const timeString = now.toLocaleString('zh-CN', {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
-        });
-        document.querySelector('.completion-time').textContent = `支付完成时间：${timeString}`;
-    </script>
-</body>
-</html>
+   <script>
+  // 显示支付完成时间
+  const now = new Date();
+  const timeString = now.toLocaleString('zh-CN', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+  document.querySelector('.completion-time').textContent = `支付完成时间：${timeString}`;
+
+  // === 写入 localStorage 标记 ===
+  (function () {
+    // 从 URL 参数读取 plan（例如 ?plan=pro 或 ?plan=team）
+    const params = new URLSearchParams(window.location.search);
+    const plan = params.get('plan'); // 'pro' or 'team'
+
+    // 设置有效期 30 天（单位：毫秒）
+    const expireDays = 30;
+    const expireTime = Date.now() + expireDays * 24 * 60 * 60 * 1000;
+
+    if (plan === 'pro' || plan === 'team') {
+      // 写入 localStorage
+      localStorage.setItem('plan', plan);
+      localStorage.setItem('plan_exp', expireTime.toString());
+
+      console.log(`✅ 已保存套餐标记：${plan}，有效期 ${expireDays} 天`);
+
+      // （可选）1.5 秒后自动跳转到对应子站
+      setTimeout(() => {
+        const target =
+          plan === 'pro'
+            ? 'https://pro.eventflox.com'
+            : 'https://team.eventflox.com';
+        window.location.href = target;
+      }, 1500);
+    } else {
+      console.log('⚠️ 未检测到 plan 参数，未写入标记。');
+    }
+  })();
+</script>
